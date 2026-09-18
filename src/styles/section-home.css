@@ -1,0 +1,114 @@
+/* ============ HOME ============ */
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 832px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px clamp(20px, 8vw, 120px) 60px;
+}
+
+.home img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.home-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-overlay);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.home-bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.home-title {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(40px, 6vw, 80px);
+    letter-spacing: 4px;
+    line-height: 1.15;
+    color: rgb(var(--text));
+    max-width: 290px;
+    text-align: left;
+}
+
+.home-cta {
+    padding: 14px 32px;
+    border: 1px solid rgb(var(--text) / 0.6);
+    border-radius: 999px;
+    font-family: "Jacques Francois", serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: rgb(var(--text));
+    background: rgb(var(--text) / 0.08);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: background-color .25s ease, transform .2s ease;
+}
+
+.home-cta:hover {
+    background: rgb(var(--text) / 0.18);
+    transform: scale(1.04);
+}
+
+.home-cta:active {
+    transform: scale(0.97);
+}
+
+.home-socials {
+    display: flex;
+    gap: 16px;
+}
+
+.home-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: rgb(var(--text));
+    background: rgb(var(--text) / 0.08);
+    backdrop-filter: blur(6px);
+    transition: background-color .25s ease, transform .2s ease;
+}
+
+.home-social-link:hover {
+    background: rgb(var(--text) / 0.2);
+    transform: scale(1.08);
+}
+
+.home-social-link:focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+}
+
+.home-social-icon {
+    width: 42px;
+    height: 42px;
+}

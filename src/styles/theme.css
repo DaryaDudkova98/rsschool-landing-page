@@ -11,6 +11,7 @@
     --toggle-icon:        rgb(253 232 211 / 0.30);
     --toggle-icon-active: rgb(253 232 211 / 1);
     --toggle-glow:        rgb(253 232 211 / 0.45);
+    --bg-overlay: rgb(43 33 24 / 0.5);
 
     color-scheme: dark;
 }
@@ -28,6 +29,7 @@
     --toggle-icon:        rgb(43 33 24 / 0.35);
     --toggle-icon-active: rgb(43 33 24 / 0.85);
     --toggle-glow:        rgb(43 33 24 / 0.20);
+    --bg-overlay: rgb(43 33 24 / 0.25);
 
     color-scheme: light;
 }
