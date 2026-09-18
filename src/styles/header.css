@@ -1,0 +1,42 @@
+@import "logo.css";
+@import "burger.css";
+
+.header {
+    display: flex;
+    width: 1240px;
+    height: 60px;
+    margin: 30px 0;
+}
+
+/*======= MENU ========*/
+
+.menu {
+    display: flex;
+    gap: 40px;
+    font-family: Jacques Francois;
+    font-size: 32px;
+    letter-spacing: 4px;
+    padding: 6px 20px;
+    color: rgb(var(--text));
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 3px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .45s ease;
+}
+
+.menu li:hover::after {
+    transform: scaleX(1);
+}
