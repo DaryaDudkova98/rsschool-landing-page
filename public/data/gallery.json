@@ -1,0 +1,71 @@
+{
+  "categories": [
+    {
+      "id": "individual",
+      "title": "Individual",
+      "description": "A personal shoot focused on character and light.",
+      "cover": "img/covers/individual.jpg",
+      "count": 24,
+      "subcategories": [
+        {
+          "id": "maria",
+          "title": "Maria",
+          "cover": "img/individual/maria/cover.jpg",
+          "photos": [
+            { "src": "img/individual/maria/01.jpg", "alt": "Maria 01" },
+            { "src": "img/individual/maria/02.jpg", "alt": "Maria 02" }
+          ]
+        },
+        {
+          "id": "anna",
+          "title": "Anna",
+          "cover": "img/individual/anna/cover.jpg",
+          "photos": [
+            { "src": "img/individual/anna/01.jpg", "alt": "Anna 01" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Family",
+      "description": "Warm and sincere shots for the whole family.",
+      "cover": "img/covers/family.jpg",
+      "count": 18,
+      "subcategories": [
+        {
+          "id": "ivanov",
+          "title": "The Ivanovs",
+          "cover": "img/family/ivanov/cover.jpg",
+          "photos": [
+            { "src": "img/family/ivanov/01.jpg", "alt": "Ivanov family 01" },
+            { "src": "img/family/ivanov/02.jpg", "alt": "Ivanov family 02" }
+          ]
+        },
+        {
+          "id": "petrov",
+          "title": "The Petrovs",
+          "cover": "img/family/petrov/cover.jpg",
+          "photos": [
+            { "src": "img/family/petrov/01.jpg", "alt": "Petrov family 01" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "street",
+      "title": "Street",
+      "cover": "img/covers/street.jpg",
+      "subcategories": [
+        {
+          "id": "all",
+          "title": "All street photos",
+          "photos": [
+            { "src": "img/street/01.jpg", "alt": "Street 01" },
+            { "src": "img/street/02.jpg", "alt": "Street 02" }
+          ]
+        }
+      ]
+    }
+  ]
+}

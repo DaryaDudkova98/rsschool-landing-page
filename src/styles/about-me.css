@@ -52,3 +52,50 @@
     text-align: justify;
     max-width: 75ch;
 }
+
+/* ============ MEDIA-WIDTH ============ */
+
+@media (max-width: 1024px) {
+    .about-me-content {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-me-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .about-me-camera {
+        align-self: center;
+    }
+
+    .about-me-camera img {
+        max-height: 300px;
+    }
+
+    .img-border {
+        transform: translate(12px, 12px);
+    }
+
+    .about-content-text {
+        text-align: left;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .about-me {
+        padding: 24px 16px;
+    }
+
+    .about-me-camera img {
+        max-height: 240px;
+    }
+
+    .img-border {
+        transform: translate(8px, 8px);
+    }
+}

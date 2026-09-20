@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 4px;
-    padding: 10px 40px;
+    gap: clamp(2px, 0.4vw, 4px);
+    padding: clamp(6px, 1vw, 10px) clamp(8px, 2vw, 40px);
 }
 
 .logo-letter {
-    font-family: Jacques Francois;
+    font-family: "Jacques Francois", serif;
     font-size: 48px;
     line-height: 0.8;
     color: rgb(var(--text));
@@ -18,4 +18,20 @@
     height: 10px;
     background-color: rgb(var(--text));
     border-radius: 50%;
+}
+
+/* ============ MEDIA-WODTH ============ */
+
+@media (max-width: 768px) {
+    .logo a {
+        padding: 6px 8px;
+        gap: 2px;
+    }
+}
+
+@media (max-width: 380px) {
+    .logo a {
+        padding: 4px 4px;
+        gap: 1px;
+    }
 }

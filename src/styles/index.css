@@ -5,6 +5,9 @@
 @import "references.css";
 @import "prices.css";
 @import "footer.css";
+@import "gallery-category.css";
+@import "gallery-btn-more.css";
+@import "gallery-grid.css";
 
 *,
 *::before,
@@ -27,6 +30,13 @@ body {
     max-width: 1240px;
     margin: 0 auto;
     background-color: rgb(var(--bg));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 img,
