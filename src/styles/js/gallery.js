@@ -1,4 +1,4 @@
-const DATA_URL = '/public/data/gallery.json';
+const DATA_URL = 'public/data/gallery.json';
 
 let allPhotos = [];
 
