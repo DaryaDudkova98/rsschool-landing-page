@@ -1,6 +1,10 @@
 const DATA_URL = 'public/data/gallery.json';
 
-let allPhotos = [];
+const PAGE_SIZE = 8;
+
+let allSubcategories = [];
+let activeCategory = 'all';
+let visibleCount = PAGE_SIZE;
 
 async function loadGallery() {
   const res = await fetch(DATA_URL);
@@ -9,39 +13,52 @@ async function loadGallery() {
   return data.categories;
 }
 
-function flattenPhotos(categories) {
-  return categories.flatMap((cat) =>
-    (cat.subcategories ?? []).flatMap((sub) =>
-      sub.photos.map((photo) => ({
-        ...photo,
+function flattenSubcategories(categories) {
+  return categories
+    .flatMap((cat) =>
+      (cat.subcategories ?? []).map((sub) => ({
         category: cat.id,
-        subcategory: sub.id,
-        subcategoryTitle: sub.title,
+        title: sub.title,
+        mainPhoto: sub.photos?.[0] ?? null,
+        photosCount: sub.photos?.length ?? 0,
       }))
     )
-  );
+    .filter((item) => item.mainPhoto);
 }
 
-function renderCards(photos, container) {
-  container.innerHTML = photos
-    .map(
-      (photo) => `
-        <li class="gallery__item" data-category="${photo.category}">
-          <figure class="gallery__card">
-            <img
-              class="gallery__img"
-              src="${photo.src}"
-              alt="${photo.alt}"
-              loading="lazy"
-            >
-            <figcaption class="gallery__caption">
-              ${photo.subcategoryTitle}
-            </figcaption>
-          </figure>
-        </li>
-      `
-    )
-    .join('');
+function renderCards(items, container) {
+  const template = document.getElementById('gallery-card-template');
+  if (!template) return;
+
+  const fragment = document.createDocumentFragment();
+
+  items.forEach((item) => {
+    const node = template.content.firstElementChild.cloneNode(true);
+    const img = node.querySelector('.gallery__img');
+    const title = node.querySelector('.gallery__title');
+    const meta = node.querySelector('.gallery__meta');
+
+    img.src = item.mainPhoto.src;
+    img.alt = item.mainPhoto.alt;
+    title.textContent = item.title;
+    meta.textContent = `${item.photosCount} photos`;
+
+    fragment.appendChild(node);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function getFiltered() {
+  return activeCategory === 'all'
+    ? allSubcategories
+    : allSubcategories.filter((s) => s.category === activeCategory);
+}
+
+function renderVisible(container) {
+  const filtered = getFiltered();
+  const visible = filtered.slice(0, visibleCount);
+  renderCards(visible, container);
 }
 
 function setupFilters(container) {
@@ -52,13 +69,9 @@ function setupFilters(container) {
       buttons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
       btn.setAttribute('aria-pressed', 'true');
 
-      const category = btn.dataset.category;
-      const filtered =
-        category === 'all'
-          ? allPhotos
-          : allPhotos.filter((p) => p.category === category);
-
-      renderCards(filtered, container);
+      activeCategory = btn.dataset.category;
+      visibleCount = PAGE_SIZE;
+      renderVisible(container);
     });
   });
 }
@@ -68,8 +81,9 @@ export async function initGallery() {
   if (!container) return;
 
   const categories = await loadGallery();
-  allPhotos = flattenPhotos(categories);
+  allSubcategories = flattenSubcategories(categories);
+  visibleCount = PAGE_SIZE;
 
-  renderCards(allPhotos, container);
+  renderVisible(container);
   setupFilters(container);
 }

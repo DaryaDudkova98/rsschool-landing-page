@@ -50,9 +50,23 @@
                 <button class="gallery__btn" type="button" data-category="individual" aria-pressed="false">Individual</button>
                 <button class="gallery__btn" type="button" data-category="street" aria-pressed="false">Street</button>
                 <button class="gallery__btn" type="button" data-category="family" aria-pressed="false">Family</button>
-                <button class="gallery__btn" type="button" data-category="love story" aria-pressed="false">Love story</button>
+                <button class="gallery__btn" type="button" data-category="love-story" aria-pressed="false">Love story</button>
             </div>
             <ul class="gallery__grid" id="gallery-grid"></ul>
+            <template id="gallery-card-template">
+                <li class="gallery__item">
+                    <button class="gallery__card" type="button">
+                    <figure class="gallery__figure">
+                        <img class="gallery__img" src="" alt="" loading="lazy">
+                        <span class="gallery__btn-more" aria-hidden="true">More</span>
+                        <figcaption class="gallery__caption">
+                            <span class="gallery__title"></span>
+                            <span class="gallery__meta"></span>
+                        </figcaption> 
+                    </figure>
+                    </button>
+                </li>
+            </template>
             <div class="gallery__category-btn">
                 <button class="gallery__more" type="button">Show more</button>
             </div>

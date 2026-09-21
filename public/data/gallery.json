@@ -3,51 +3,126 @@
     {
       "id": "individual",
       "title": "Individual",
-      "description": "A personal shoot focused on character and light.",
       "cover": "img/covers/individual.jpg",
-      "count": 24,
       "subcategories": [
         {
-          "id": "maria",
-          "title": "Maria",
-          "cover": "img/individual/maria/cover.jpg",
+          "id": "00001",
+          "title": "Elara Vance",
+          "description": "A personal shoot focused on character and light.",
+          "location": "nature & forest",
+          "count": 4,
+          "cover": "img/individual/00001/cover.jpg",
           "photos": [
-            { "src": "img/individual/maria/01.jpg", "alt": "Maria 01" },
-            { "src": "img/individual/maria/02.jpg", "alt": "Maria 02" }
+            { "src": "img/individual/00001/01.jpg", "alt": "Elara 01" },
+            { "src": "img/individual/00001/02.jpg", "alt": "Elara 02" },
+            { "src": "img/individual/00001/03.jpg", "alt": "Elara 03" },
+            { "src": "img/individual/00001/04.jpg", "alt": "Elara 04" }
           ]
         },
         {
-          "id": "anna",
-          "title": "Anna",
-          "cover": "img/individual/anna/cover.jpg",
+          "id": "00002",
+          "title": "Sofia",
+          "description": "A moody studio portrait exploring dramatic shadows, warm light, and elegant character.",
+          "location": "Studio",
+          "count": 3,
+          "cover": "img/individual/00002/cover.jpg",
           "photos": [
-            { "src": "img/individual/anna/01.jpg", "alt": "Anna 01" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "family",
-      "title": "Family",
-      "description": "Warm and sincere shots for the whole family.",
-      "cover": "img/covers/family.jpg",
-      "count": 18,
-      "subcategories": [
-        {
-          "id": "ivanov",
-          "title": "The Ivanovs",
-          "cover": "img/family/ivanov/cover.jpg",
-          "photos": [
-            { "src": "img/family/ivanov/01.jpg", "alt": "Ivanov family 01" },
-            { "src": "img/family/ivanov/02.jpg", "alt": "Ivanov family 02" }
+            { "src": "img/individual/00002/01.jpg", "alt": "Sofia 01" },
+            { "src": "img/individual/00002/02.jpg", "alt": "Sofia 02" },
+            { "src": "img/individual/00002/03.jpg", "alt": "Sofia 03" }
           ]
         },
         {
-          "id": "petrov",
-          "title": "The Petrovs",
-          "cover": "img/family/petrov/cover.jpg",
+          "id": "00003",
+          "title": "Victoria",
+          "description": "Intimate beauty portraits with a focus on texture, freckles, and bold lighting. A study of raw emotion and striking features.",
+          "location": "Lumen Studio",
+          "count": 4,
+          "cover": "img/individual/00003/cover.jpg",
           "photos": [
-            { "src": "img/family/petrov/01.jpg", "alt": "Petrov family 01" }
+            { "src": "img/individual/00003/01.jpg", "alt": "Victoria 01" },
+            { "src": "img/individual/00003/02.jpg", "alt": "Victoria 02" },
+            { "src": "img/individual/00003/03.jpg", "alt": "Victoria 03" },
+            { "src": "img/individual/00003/04.jpg", "alt": "Victoria 04" }
+          ]
+        },
+        {
+          "id": "00004",
+          "title": "Gloria",
+          "description": "A dark and moody studio session. Exploring shadow, tension, and raw beauty through dramatic low-key lighting.",
+          "location": "Studio 'K69'",
+          "count": 2,
+          "cover": "img/individual/00004/cover.jpg",
+          "photos": [
+            { "src": "img/individual/00004/01.jpg", "alt": "Gloria 01" },
+            { "src": "img/individual/00004/02.jpg", "alt": "Gloria 02" }
+          ]
+        },
+        {
+          "id": "00005",
+          "title": "Mara",
+          "description": "A mystical portrait session exploring ancient beauty and quiet power. Veiled in light fabric and adorned with gold, revealing raw texture and timeless character.",
+          "location": "Studio 'cult413'",
+          "count": 4,
+          "cover": "img/individual/00005/cover.jpg",
+          "photos": [
+            { "src": "img/individual/00005/01.jpg", "alt": "Mara 01" },
+            { "src": "img/individual/00005/02.jpg", "alt": "Mara 02" },
+            { "src": "img/individual/00005/03.jpg", "alt": "Mara 03" },
+            { "src": "img/individual/00005/04.jpg", "alt": "Mara 04" }
+          ]
+        },
+        {
+          "id": "00006",
+          "title": "Ophelia",
+          "description": "A warm and natural street portrait capturing effortless beauty and soft golden light. Relaxed character with voluminous curls and rich earthy tones",
+          "location": "Street",
+          "count": 4,
+          "cover": "img/individual/00006/cover.jpg",
+          "photos": [
+            { "src": "img/individual/00006/01.jpg", "alt": "Ophelia 01" },
+            { "src": "img/individual/00006/02.jpg", "alt": "Ophelia 02" },
+            { "src": "img/individual/00006/03.jpg", "alt": "Ophelia 03" },
+            { "src": "img/individual/00006/04.jpg", "alt": "Ophelia 04" }
+          ]
+        },
+        {
+          "id": "00007",
+          "title": "Camila",
+          "description": "A dreamy forest portrait captured during golden hour. Soft ethereal light, flowing fabric, and a gentle romantic atmosphere.",
+          "location": "Forest",
+          "count": 4,
+          "cover": "img/individual/00007/cover.jpg",
+          "photos": [
+            { "src": "img/individual/00007/01.jpg", "alt": "Camila 01" },
+            { "src": "img/individual/00007/02.jpg", "alt": "Camila 02" },
+            { "src": "img/individual/00007/03.jpg", "alt": "Camila 03" }
+          ]
+        },
+        {
+          "id": "00008",
+          "title": "Elvira",
+          "description": "A poetic studio portrait exploring fragility and wind. Ethereal beauty with wild hair and white flowers, captured in soft cinematic light.",
+          "location": "Studio 'YOYO Studio'",
+          "count": 4,
+          "cover": "img/individual/00008/cover.jpg",
+          "photos": [
+            { "src": "img/individual/00008/01.jpg", "alt": "Elvira 01" },
+            { "src": "img/individual/00008/02.jpg", "alt": "Elvira 02" }
+          ]
+        },
+        {
+          "id": "00009",
+          "title": "Julia",
+          "description": "An intimate close-up portrait bathed in warm sunlight. Playful shadows, natural freckles, and soft golden tones create a dreamy, sun-kissed mood.",
+          "location": "Studio 'Forest Studio'",
+          "count": 4,
+          "cover": "img/individual/00009/cover.jpg",
+          "photos": [
+            { "src": "img/individual/00009/01.jpg", "alt": "Julia 01" },
+            { "src": "img/individual/00009/02.jpg", "alt": "Julia 02" },
+            { "src": "img/individual/00009/03.jpg", "alt": "Julia 03" },
+            { "src": "img/individual/00009/04.jpg", "alt": "Julia 04" }
           ]
         }
       ]
@@ -58,11 +133,205 @@
       "cover": "img/covers/street.jpg",
       "subcategories": [
         {
-          "id": "all",
-          "title": "All street photos",
+          "id": "00001",
+          "title": "Elara Vance",
+          "description": "A personal shoot focused on character and light.",
+          "location": "nature & forest",
+          "count": 4,
+          "cover": "img/street/00001/cover.jpg",
           "photos": [
-            { "src": "img/street/01.jpg", "alt": "Street 01" },
-            { "src": "img/street/02.jpg", "alt": "Street 02" }
+            { "src": "img/street/00001/01.jpg", "alt": "Elara 01" },
+            { "src": "img/street/00001/02.jpg", "alt": "Elara 02" },
+            { "src": "img/street/00001/03.jpg", "alt": "Elara 03" },
+            { "src": "img/street/00001/04.jpg", "alt": "Elara 04" }
+          ]
+        },
+        {
+          "id": "00002",
+          "title": "Sofia",
+          "description": "A moody studio portrait exploring dramatic shadows, warm light, and elegant character.",
+          "location": "Studio",
+          "count": 3,
+          "cover": "img/street/00002/cover.jpg",
+          "photos": [
+            { "src": "img/street/00002/01.jpg", "alt": "Sofia 01" },
+            { "src": "img/street/00002/02.jpg", "alt": "Sofia 02" },
+            { "src": "img/street/00002/03.jpg", "alt": "Sofia 03" }
+          ]
+        },
+        {
+          "id": "00003",
+          "title": "Victoria",
+          "description": "Intimate beauty portraits with a focus on texture, freckles, and bold lighting. A study of raw emotion and striking features.",
+          "location": "Lumen Studio",
+          "count": 4,
+          "cover": "img/street/00003/cover.jpg",
+          "photos": [
+            { "src": "img/street/00003/01.jpg", "alt": "Victoria 01" },
+            { "src": "img/street/00003/02.jpg", "alt": "Victoria 02" },
+            { "src": "img/street/00003/03.jpg", "alt": "Victoria 03" },
+            { "src": "img/street/00003/04.jpg", "alt": "Victoria 04" }
+          ]
+        },
+        {
+          "id": "00004",
+          "title": "Gloria",
+          "description": "A dark and moody studio session. Exploring shadow, tension, and raw beauty through dramatic low-key lighting.",
+          "location": "Studio 'K69'",
+          "count": 2,
+          "cover": "img/street/00004/cover.jpg",
+          "photos": [
+            { "src": "img/street/00004/01.jpg", "alt": "Gloria 01" },
+            { "src": "img/street/00004/02.jpg", "alt": "Gloria 02" }
+          ]
+        },
+        {
+          "id": "00005",
+          "title": "Mara",
+          "description": "A mystical portrait session exploring ancient beauty and quiet power. Veiled in light fabric and adorned with gold, revealing raw texture and timeless character.",
+          "location": "Studio 'cult413'",
+          "count": 4,
+          "cover": "img/street/00005/cover.jpg",
+          "photos": [
+            { "src": "img/street/00005/01.jpg", "alt": "Mara 01" }
+          ]
+        },
+        {
+          "id": "00006",
+          "title": "Ophelia",
+          "description": "A warm and natural street portrait capturing effortless beauty and soft golden light. Relaxed character with voluminous curls and rich earthy tones",
+          "location": "Street",
+          "count": 4,
+          "cover": "img/street/00006/cover.jpg",
+          "photos": [
+            { "src": "img/street/00006/01.jpg", "alt": "Ophelia 01" },
+            { "src": "img/street/00006/02.jpg", "alt": "Ophelia 02" }
+          ]
+        },
+        {
+          "id": "00007",
+          "title": "Camila",
+          "description": "A dreamy forest portrait captured during golden hour. Soft ethereal light, flowing fabric, and a gentle romantic atmosphere.",
+          "location": "Forest",
+          "count": 4,
+          "cover": "img/street/00007/cover.jpg",
+          "photos": [
+            { "src": "img/street/00007/01.jpg", "alt": "Camila 01" }
+          ]
+        },
+        {
+          "id": "00008",
+          "title": "Elvira",
+          "description": "A poetic studio portrait exploring fragility and wind. Ethereal beauty with wild hair and white flowers, captured in soft cinematic light.",
+          "location": "Studio 'YOYO Studio'",
+          "count": 4,
+          "cover": "img/street/00008/cover.jpg",
+          "photos": [
+            { "src": "img/street/00008/01.jpg", "alt": "Elvira 01" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Family",
+      "cover": "img/covers/street.jpg",
+      "subcategories": [
+        {
+          "id": "00001",
+          "title": "Elara Vance",
+          "description": "A personal shoot focused on character and light.",
+          "location": "nature & forest",
+          "count": 4,
+          "cover": "img/family/00001/cover.jpg",
+          "photos": [
+            { "src": "img/family/00001/01.jpg", "alt": "Elara 01" }
+          ]
+        },
+        {
+          "id": "00002",
+          "title": "Sofia",
+          "description": "A moody studio portrait exploring dramatic shadows, warm light, and elegant character.",
+          "location": "Studio",
+          "count": 3,
+          "cover": "img/street/00002/cover.jpg",
+          "photos": [
+            { "src": "img/family/00002/01.jpg", "alt": "Sofia 01" }
+          ]
+        },
+        {
+          "id": "00003",
+          "title": "Victoria",
+          "description": "Intimate beauty portraits with a focus on texture, freckles, and bold lighting. A study of raw emotion and striking features.",
+          "location": "Lumen Studio",
+          "count": 4,
+          "cover": "img/family/00003/cover.jpg",
+          "photos": [
+            { "src": "img/family/00003/01.jpg", "alt": "Victoria 01" }
+          ]
+        },
+        {
+          "id": "00004",
+          "title": "Gloria",
+          "description": "A dark and moody studio session. Exploring shadow, tension, and raw beauty through dramatic low-key lighting.",
+          "location": "Studio 'K69'",
+          "count": 2,
+          "cover": "img/family/00004/cover.jpg",
+          "photos": [
+            { "src": "img/family/00004/01.jpg", "alt": "Gloria 01" }
+          ]
+        },
+        {
+          "id": "00005",
+          "title": "Mara",
+          "description": "A mystical portrait session exploring ancient beauty and quiet power. Veiled in light fabric and adorned with gold, revealing raw texture and timeless character.",
+          "location": "Studio 'cult413'",
+          "count": 4,
+          "cover": "img/family/00005/cover.jpg",
+          "photos": [
+            { "src": "img/family/00005/01.jpg", "alt": "Mara 01" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "love-story",
+      "title": "Love-story",
+      "cover": "img/covers/street.jpg",
+      "subcategories": [
+        {
+          "id": "00001",
+          "title": "Elara Vance",
+          "description": "A personal shoot focused on character and light.",
+          "location": "nature & forest",
+          "count": 4,
+          "cover": "img/love-story/00001/cover.jpg",
+          "photos": [
+            { "src": "img/love-story/00001/01.jpg", "alt": "Elara 01" },
+            { "src": "img/love-story/00001/02.jpg", "alt": "Elara 02" }
+          ]
+        },
+        {
+          "id": "00002",
+          "title": "Sofia",
+          "description": "A moody studio portrait exploring dramatic shadows, warm light, and elegant character.",
+          "location": "Studio",
+          "count": 3,
+          "cover": "img/love-story/00002/cover.jpg",
+          "photos": [
+            { "src": "img/love-story/00002/01.jpg", "alt": "Sofia 01" },
+            { "src": "img/love-story/00002/02.jpg", "alt": "Sofia 02" }
+          ]
+        },
+        {
+          "id": "00003",
+          "title": "Victoria",
+          "description": "Intimate beauty portraits with a focus on texture, freckles, and bold lighting. A study of raw emotion and striking features.",
+          "location": "Lumen Studio",
+          "count": 4,
+          "cover": "img/love-story/00003/cover.jpg",
+          "photos": [
+            { "src": "img/love-story/00003/01.jpg", "alt": "Victoria 01" }
           ]
         }
       ]
