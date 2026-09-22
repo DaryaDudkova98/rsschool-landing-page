@@ -1,0 +1,93 @@
+.prices {
+    padding: clamp(32px, 5vw, 50px) clamp(16px, 5vw, 80px);
+}
+
+.prices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+}
+
+.prices-grid-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(var(--text) / 0.08);
+    padding: clamp(16px, 2vw, 32px);
+}
+
+.prices-grid-subtitle {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(20px, 1.8vw, 42px);
+    letter-spacing: 4px;
+    color: rgb(var(--text));
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 clamp(16px, 2vw, 32px);
+}
+
+.prices-grid-content img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.prices-grid-btn {
+    padding: 14px 32px;
+    margin: clamp(24px, 3vw, 50px) 0 0;
+    border: 1px solid rgb(var(--text) / 0.6);
+    border-radius: 999px;
+    font-family: "Jacques Francois", serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: rgb(var(--text));
+    background: rgb(var(--text) / 0.08);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: background-color .25s ease, transform .2s ease;
+}
+
+.prices-grid-btn:hover {
+    background: rgb(var(--text) / 0.18);
+    transform: scale(1.04);
+}
+
+/* ============ MEDIA-WIDTH ============ */
+
+@media (max-width: 768px) {
+    .prices-grid-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prices-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+}
+
+@media (max-width: 380px) {
+    .prices {
+        padding: 24px 16px;
+    }
+
+    .prices-grid-content {
+        padding: 16px;
+    }
+
+    .prices-grid-subtitle {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .prices-grid-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

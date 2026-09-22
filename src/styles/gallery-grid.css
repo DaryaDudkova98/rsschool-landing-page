@@ -1,0 +1,178 @@
+/* ============ GRID ============ */
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(12px, 1.5vw, 20px);
+    padding: 0;
+    margin: clamp(20px, 3vw, 32px) 0 0;
+    list-style: none;
+}
+
+/* ============ ITEM ============ */
+
+.gallery__item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    min-width: 0;
+}
+
+/* ============ CARD ============ */
+
+.gallery__figure {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgb(var(--bg-elevated));
+}
+
+/* ============ IMAGE ============ */
+
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.gallery__figure:hover .gallery__img {
+    transform: scale(1.05);
+}
+
+/* ============ CAPTION ============ */
+
+.gallery__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px;
+    background: linear-gradient(to top, rgb(0 0 0 / .7), transparent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.gallery__figure:hover .gallery__caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gallery__meta {
+    flex: 0 0 auto;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .04em;
+    opacity: .8;
+}
+
+/* ============ MORE BADGE ============ */
+
+.gallery__btn-more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 10px;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    line-height: 1;
+
+    color: #fff;
+    background: rgb(0 0 0 / .55);
+    border: 1px solid rgb(255 255 255 / .35);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.gallery__figure:hover .gallery__btn-more {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgb(0 0 0 / .75);
+    border-color: rgb(255 255 255 / .7);
+}
+
+/*============= TITLE ==================*/
+
+.page-title {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(24px, 4vw, 56px);
+    font-weight: normal;
+    letter-spacing: clamp(2px, 0.5vw, 6px);
+    text-align: center;
+    text-indent: clamp(2px, 0.5vw, 6px);
+    color: var(--text-color);
+    margin: 0 auto clamp(20px, 3vw, 40px);
+}
+
+/* ============ MEDIA-WIDTH ============ */
+
+@media (max-width: 1024px) {
+    .gallery__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gallery__caption { font-size: 13px; padding: 10px; }
+    .gallery__btn-more {
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px;
+        font-size: 10px;
+        letter-spacing: .12em;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery__grid { grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+    .gallery__figure { aspect-ratio: 4 / 3; }
+}
+
+@media (max-width: 380px) {
+    .gallery__grid { gap: 12px; margin-top: 16px; }
+    .gallery__caption { font-size: 12px; padding: 8px; }
+}
+
+@media (hover: none) {
+    .gallery__caption { opacity: 1; transform: none; }
+    .gallery__btn-more {
+        opacity: 1;
+        transform: none;
+    }
+}
+

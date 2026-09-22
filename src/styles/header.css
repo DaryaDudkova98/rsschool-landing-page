@@ -1,0 +1,159 @@
+@import "logo.css";
+@import "burger.css";
+
+/* ======= HEADER ======== */
+
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1240px;
+    height: 60px;
+    margin: 30px auto;
+    padding: 0 clamp(16px, 4vw, 40px);
+}
+
+/* ======= MENU ======== */
+
+.menu {
+    display: flex;
+    gap: clamp(20px, 3vw, 40px);
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(18px, 2vw, 32px);
+    letter-spacing: 4px;
+    padding: 6px 20px;
+    color: rgb(var(--text));
+    white-space: nowrap;
+}
+
+.menu a {
+    white-space: nowrap;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 3px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .45s ease;
+}
+
+.menu li:hover::after {
+    transform: scaleX(1);
+}
+
+.burger {
+    display: none;
+}
+
+/* ============ MEDIA-WIDTH ============ */
+
+@media (max-width: 1200px) {
+    .menu {
+        font-size: clamp(16px, 1.8vw, 24px);
+        gap: clamp(16px, 2vw, 28px);
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu {
+        gap: 12px;
+        letter-spacing: 1.5px;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 810px) {
+    .menu {
+        gap: 8px;
+        letter-spacing: 1px;
+        font-size: 15px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        min-height: 60px;
+        margin: 16px auto;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
+        margin-right: 25px;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .menu.is-open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        gap: 16px;
+        padding: 20px 16px;
+        background: rgb(var(--bg));
+        border-top: 1px solid rgb(var(--border));
+        border-bottom: 1px solid rgb(var(--border));
+        font-size: 18px;
+        letter-spacing: 1px;
+        z-index: 10;
+        white-space: normal;
+    }
+
+    .menu.is-open a {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0 16px;
+        margin: 12px auto;
+    }
+
+    .menu.is-open {
+        padding: 16px 12px;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 380px) {
+    .header {
+        min-height: 52px;
+    }
+
+    .menu.is-open {
+        font-size: 15px;
+        gap: 12px;
+        padding: 14px 12px;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
+        margin-right: 25px;
+    }
+}

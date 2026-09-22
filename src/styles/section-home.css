@@ -1,0 +1,256 @@
+/* ============ HOME TITLE (Photographer) ============ */
+
+.home h1 {
+    position: absolute;
+    top: clamp(20px, 4vw, 48px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    margin: 0;
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(48px, 10vw, 140px);
+    font-weight: normal;
+    letter-spacing: clamp(4px, 1vw, 12px);
+    text-align: center;
+    white-space: nowrap;
+
+    color: transparent;
+
+    text-shadow: 0 0 15px rgb(var(--text));
+
+    transition: text-shadow .5s ease;
+    pointer-events: none;
+}
+
+.home:hover h1 {
+    text-shadow: 0 0 0 rgb(var(--text));
+}
+
+
+
+/* ============ HOME ============ */
+.home {
+    position: relative;
+    width: 100%;
+    min-height: clamp(560px, 80vh, 832px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(60px, 12vw, 120px) clamp(20px, 8vw, 120px) clamp(32px, 6vw, 60px);
+
+    --text:        253 232 211;
+    --text-muted:  220 210 200;
+    --accent:      120 160 255;
+}
+
+.home img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.home-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-overlay);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.home-bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: clamp(20px, 3vw, 32px);
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: clamp(40px, 8vw, 100px);
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(24px, 4vw, 50px);
+}
+
+.home-title {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(36px, 6vw, 80px);
+    letter-spacing: 4px;
+    line-height: 1.15;
+    color: rgb(var(--text));
+    max-width: clamp(220px, 30vw, 290px);
+    text-align: left;
+}
+
+.home-cta {
+    padding: 14px 32px;
+    border: 1px solid rgb(var(--text) / 0.6);
+    border-radius: 999px;
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(14px, 1.4vw, 18px);
+    letter-spacing: 2px;
+    color: rgb(var(--text));
+    background: rgb(var(--text) / 0.08);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: background-color .25s ease, transform .2s ease;
+}
+
+.home-cta:hover {
+    background: rgb(var(--text) / 0.18);
+    transform: scale(1.04);
+}
+
+.home-cta:active {
+    transform: scale(0.97);
+}
+
+.home-socials {
+    display: flex;
+    gap: clamp(10px, 1.5vw, 16px);
+}
+
+.home-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    border-radius: 50%;
+    color: rgb(var(--text));
+    background: rgb(var(--text) / 0.08);
+    backdrop-filter: blur(6px);
+    transition: background-color .25s ease, transform .2s ease;
+}
+
+.home-social-link:hover {
+    background: rgb(var(--text) / 0.2);
+    transform: scale(1.08);
+}
+
+.home-social-link:focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+}
+
+.home-social-icon {
+    width: clamp(22px, 2.8vw, 42px);
+    height: clamp(22px, 2.8vw, 42px);
+}
+
+/* ============ MEDIA-WIDTH ============ */
+
+@media (max-width: 1024px) {
+    .home {
+        min-height: clamp(520px, 75vh, 720px);
+    }
+
+    .home-bottom {
+        margin-bottom: clamp(32px, 6vw, 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        min-height: 560px;
+        padding: 60px 24px 32px;
+    }
+
+    .home h1 {
+        font-size: clamp(40px, 12vw, 72px);
+        letter-spacing: 4px;
+        top: 24px;
+    }
+
+    .home-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        margin-bottom: 0;
+    }
+
+    .home-content {
+        gap: 24px;
+    }
+
+    .home-title {
+        max-width: 220px;
+    }
+
+    .home-socials {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .home {
+        min-height: 520px;
+        padding: 40px 16px 24px;
+    }
+
+    .home h1 {
+        font-size: 40px;
+        letter-spacing: 3px;
+        top: 20px;
+    }
+
+    .home-title {
+        font-size: 36px;
+        letter-spacing: 3px;
+        max-width: 200px;
+    }
+
+    .home-cta {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .home-social-link {
+        width: 48px;
+        height: 48px;
+    }
+
+    .home-social-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 380px) {
+    .home {
+        min-height: 480px;
+        padding: 32px 16px 20px;
+    }
+
+    .home h1 {
+        font-size: 34px;
+        letter-spacing: 2px;
+        top: 16px;
+    }
+
+    .home-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+        max-width: 180px;
+    }
+
+    .home-social-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    .home-social-icon {
+        width: 22px;
+        height: 22px;
+    }
+}

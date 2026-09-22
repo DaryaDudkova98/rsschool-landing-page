@@ -1,0 +1,101 @@
+/* ============ ABOUT ME ============ */
+.about-me {
+    padding: 50px 100px;
+    background-color: var(--bg-about-me);
+}
+
+.subtitle {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(24px, 2vw, 48px);
+    letter-spacing: 4px;
+    color: rgb(var(--text));
+    line-height: 1.15;
+    margin-bottom: clamp(32px, 4vw, 64px);
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.about-me-content {
+    display: flex;
+    align-items: center;
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.about-me-camera {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto
+}
+
+.about-me-camera img {
+    position: relative;
+    display: block;
+    width: auto;
+    height: 350px;
+    z-index: 1;
+}
+
+.img-border {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgb(var(--text) / 0.5);
+    transform: translate(20px, 20px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-content-text {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(16px, 1.4vw, 20px);
+    line-height: 1.6;
+    color: rgb(var(--text));
+    text-align: justify;
+    max-width: 75ch;
+}
+
+/* ============ MEDIA-WIDTH ============ */
+
+@media (max-width: 1024px) {
+    .about-me-content {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-me-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .about-me-camera {
+        align-self: center;
+    }
+
+    .about-me-camera img {
+        max-height: 300px;
+    }
+
+    .img-border {
+        transform: translate(12px, 12px);
+    }
+
+    .about-content-text {
+        text-align: left;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .about-me {
+        padding: 24px 16px;
+    }
+
+    .about-me-camera img {
+        max-height: 240px;
+    }
+
+    .img-border {
+        transform: translate(8px, 8px);
+    }
+}
