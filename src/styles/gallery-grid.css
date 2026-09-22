@@ -127,6 +127,19 @@
     border-color: rgb(255 255 255 / .7);
 }
 
+/*============= TITLE ==================*/
+
+.page-title {
+    font-family: "Jacques Francois", serif;
+    font-size: clamp(24px, 4vw, 56px);
+    font-weight: normal;
+    letter-spacing: clamp(2px, 0.5vw, 6px);
+    text-align: center;
+    text-indent: clamp(2px, 0.5vw, 6px);
+    color: var(--text-color);
+    margin: 0 auto clamp(20px, 3vw, 40px);
+}
+
 /* ============ MEDIA-WIDTH ============ */
 
 @media (max-width: 1024px) {
