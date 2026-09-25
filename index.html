@@ -17,7 +17,7 @@
             </a>
         </div>
         <nav>
-            <ul class="menu">
+            <ul class="menu" id="menu">
                 <li><a href="#about-me">About me</a></li>
                 <li><a href="#references">References</a></li>
                 <li><a href="gallery.html" aria-current="page">Gallery</a></li>
@@ -43,6 +43,7 @@
             <span class="burger__label">menu</span>
         </button>
     </header>
+    <div class="menu-overlay"></div>
     <main>
         <section id="home" class="home">
             <img src="img/photo-photographer.jpg" alt="Darya Dudkova — photographer">
@@ -176,9 +177,6 @@
             </a>
         </div>
     </footer>
-    <script type="module">
-        import { initTheme } from './src/styles/js/theme.js';
-        initTheme();
-    </script>
+    <script type="module" src="./src/js/app.js"></script>
 </body>
 </html>

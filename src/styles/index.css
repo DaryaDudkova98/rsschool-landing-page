@@ -8,6 +8,7 @@
 @import "gallery-category.css";
 @import "gallery-btn-more.css";
 @import "gallery-grid.css";
+@import "burger.css";
 
 *,
 *::before,
@@ -33,6 +34,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 main {
