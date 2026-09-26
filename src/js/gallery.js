@@ -2,6 +2,11 @@ const DATA_URL = 'public/data/gallery.json';
 
 let allSubcategories = [];
 let activeCategory = 'all';
+const itemMap = new WeakMap();
+
+export function getItemData(el) {
+    return itemMap.get(el) ?? null;
+}
 
 async function loadGallery() {
     const res = await fetch(DATA_URL);
@@ -15,8 +20,12 @@ function flattenSubcategories(categories) {
         .flatMap((cat) =>
             (cat.subcategories ?? []).map((sub) => ({
                 category: cat.id,
+                id: sub.id,
                 title: sub.title,
+                description: sub.description,
+                location: sub.location,
                 mainPhoto: sub.photos?.[0] ?? null,
+                photos: sub.photos ?? [],
                 photosCount: sub.photos?.length ?? 0,
             }))
         )
@@ -41,6 +50,8 @@ function renderCards(items, container) {
         meta.textContent = `${item.photosCount} photos`;
 
         node.dataset.category = item.category;
+
+        itemMap.set(node, item);
 
         fragment.appendChild(node);
     });

@@ -10,6 +10,8 @@
 @import "gallery-grid.css";
 @import "burger.css";
 @import "modal-prices.css";
+@import "modal-gallery.css";
+@import "lightbox.css";
 
 *,
 *::before,
