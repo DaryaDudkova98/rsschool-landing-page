@@ -1,0 +1,29 @@
+.modal-gallery {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.modal-gallery__item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.modal-gallery__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+.modal-gallery__img:hover {
+    transform: scale(1.04);
+    opacity: .9;
+}
