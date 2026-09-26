@@ -39,7 +39,12 @@
     transform: scale(0.97);
 }
 
+.gallery__item.is-hidden,
+.gallery__more.is-hidden {
+    display: none;
+}
+
 .gallery__more:focus-visible {
-    outline: 2px solid rgb(var(--accent));
+    outline: 2px solid rgb(var(--text) / 0.5);
     outline-offset: 3px;
 }

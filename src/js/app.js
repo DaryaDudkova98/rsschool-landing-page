@@ -3,6 +3,7 @@ import { initGallery } from './gallery.js';
 import { initBurger } from './burger.js';
 import { initCarousel } from './carousel.js';
 import { initModalPrices } from './modal-prices.js';
+import { initBtnMore } from './btn-more.js';
 
 export function initApp() {
     initTheme();
@@ -10,6 +11,7 @@ export function initApp() {
     initBurger();
     initCarousel();
     initModalPrices();
+    initBtnMore();
 }
 
 initApp();
