@@ -183,3 +183,27 @@
         right: 6px;
     }
 }
+
+@media (max-width: 380px) {
+    .lightbox-nav {
+        top: auto;
+        transform: none;
+        bottom: 10px;
+        width: 40px;
+        height: 40px;
+        background: rgb(255 255 255 / 0.15);
+    }
+
+    .lightbox-nav svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lightbox-nav--prev {
+        left: calc(50% - 50px);
+    }
+
+    .lightbox-nav--next {
+        right: calc(50% - 50px);
+    }
+}

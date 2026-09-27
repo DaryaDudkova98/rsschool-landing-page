@@ -23,6 +23,14 @@ export function initModalGallery() {
     let currentPhotos = [];
     let currentIndex = 0;
 
+    const ZOOM_ICON = `
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m20 20-3.5-3.5"/>
+            <path d="M11 8v6M8 11h6"/>
+        </svg>`;
+
     function openModal(item) {
         modalTitle.textContent = item.title ?? '';
         modalImage.src = item.mainPhoto?.src ?? '';
@@ -38,6 +46,9 @@ export function initModalGallery() {
             const li = document.createElement('li');
             li.className = 'modal-gallery__item';
 
+            const thumb = document.createElement('div');
+            thumb.className = 'modal-gallery__thumb';
+
             const img = document.createElement('img');
             img.className = 'modal-gallery__img';
             img.src = photo.src;
@@ -45,7 +56,14 @@ export function initModalGallery() {
             img.loading = 'lazy';
             img.dataset.index = String(i);
 
-            li.appendChild(img);
+            const zoom = document.createElement('span');
+            zoom.className = 'modal-gallery__zoom';
+            zoom.setAttribute('aria-hidden', 'true');
+            zoom.innerHTML = ZOOM_ICON;
+
+            thumb.appendChild(img);
+            thumb.appendChild(zoom);
+            li.appendChild(thumb);
             modalGallery.appendChild(li);
         });
 
@@ -105,10 +123,11 @@ export function initModalGallery() {
     });
 
     modalGallery.addEventListener('click', (e) => {
-        const thumb = e.target.closest('.modal-gallery__img');
+        const thumb = e.target.closest('.modal-gallery__thumb');
         if (!thumb) return;
 
-        const index = Number(thumb.dataset.index) || 0;
+        const img = thumb.querySelector('.modal-gallery__img');
+        const index = Number(img?.dataset.index) || 0;
         openLightbox(index);
     });
 
