@@ -1,3 +1,7 @@
+body.is-menu-open {
+    overflow: hidden;
+}
+
 .burger {
     display: none;
     flex-direction: column;

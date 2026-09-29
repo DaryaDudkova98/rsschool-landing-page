@@ -1,0 +1,203 @@
+/* ============ MODAL ============ */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    z-index: 100;
+}
+
+.modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    background: rgb(var(--bg-elevated));
+    color: rgb(var(--text));
+    padding: clamp(24px, 4vw, 48px);
+    border-radius: 12px;
+    border: 1px solid rgb(var(--border));
+    max-width: min(900px, 90vw);
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform .3s ease, background-color .3s ease, color .3s ease;
+}
+
+.modal.is-open .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: rgb(var(--text));
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .2s ease, color .2s ease;
+    z-index: 1;
+}
+
+.modal-close:hover {
+    background: rgb(var(--text) / 0.1);
+}
+
+.modal-close:focus-visible {
+    outline: 2px solid rgb(var(--text) / 0.5);
+    outline-offset: 3px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ============ MODAL TITLE ============ */
+
+.modal-title {
+    margin: 0 0 clamp(20px, 3vw, 32px);
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: rgb(var(--text));
+    text-align: center;
+}
+
+/* ============ MODAL BODY ============ */
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: clamp(20px, 3vw, 40px);
+    align-items: start;
+}
+
+.modal-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============ MODAL IMAGE ============ */
+
+.modal-image {
+    display: block;
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* ============ MODAL RIGHT ============ */
+
+.modal-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modal-option {
+    padding: 8px 16px;
+    border-radius: 60px;
+    border: 1px solid rgb(var(--border));
+    background: transparent;
+    color: rgb(var(--text-muted));
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.modal-option:hover {
+    background: rgb(var(--text) / 0.06);
+    color: rgb(var(--text));
+}
+
+.modal-option:focus-visible {
+    outline: 2px solid rgb(var(--text) / 0.5);
+    outline-offset: 3px;
+}
+
+.modal-option.is-active {
+    background: rgb(var(--text));
+    color: rgb(var(--bg));
+    border-color: rgb(var(--text));
+}
+
+.modal-list {
+    margin: 0;
+    padding-left: 20px;
+    color: rgb(var(--text-muted));
+    line-height: 1.6;
+}
+
+.modal-list li + li {
+    margin-top: 6px;
+}
+
+.modal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.modal-link {
+    color: rgb(var(--text));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgb(var(--text) / 0.3);
+    font-size: 14px;
+    transition: text-decoration-color .2s ease, opacity .2s ease;
+}
+
+.modal-link:hover {
+    text-decoration-color: rgb(var(--text));
+}
+
+.modal-link:focus-visible {
+    outline: 2px solid rgb(var(--text) / 0.5);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ============ MEDIA-QUERIES ============ */
+
+@media (max-width: 768px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+}

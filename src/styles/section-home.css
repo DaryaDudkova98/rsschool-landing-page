@@ -1,13 +1,11 @@
 /* ============ HOME TITLE (Photographer) ============ */
 
 .home h1 {
-    position: absolute;
-    top: clamp(20px, 4vw, 48px);
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
     z-index: 2;
 
-    margin: 0;
+    margin: 0 auto clamp(40px, 8vw, 100px);
+    align-self: center;
     font-family: "Jacques Francois", serif;
     font-size: clamp(48px, 10vw, 140px);
     font-weight: normal;
@@ -37,8 +35,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: clamp(60px, 12vw, 120px) clamp(20px, 8vw, 120px) clamp(32px, 6vw, 60px);
+    justify-content: flex-start;
+    padding: 0 clamp(20px, 8vw, 100px) 0;
 
     --text:        253 232 211;
     --text-muted:  220 210 200;
@@ -72,7 +70,8 @@
     gap: clamp(20px, 3vw, 32px);
     width: 100%;
     flex-wrap: wrap;
-    margin-bottom: clamp(40px, 8vw, 100px);
+    margin-top: auto;
+    margin-bottom: 50px;
 }
 
 .home-content {
