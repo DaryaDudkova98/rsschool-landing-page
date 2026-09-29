@@ -8,6 +8,7 @@ export function initCarousel() {
     const allItems = Array.from(track.children);
 
     let index = 0;
+    let isAnimating = false;
 
     function getVisibleCount() {
         const width = window.innerWidth;
@@ -26,19 +27,26 @@ export function initCarousel() {
         return copy;
     }
 
+    let realItems = [];
+
     function renderItems() {
         const visible = getVisibleCount();
 
         const fixedPart = allItems.slice(0, visible);
         const shuffledPart = shuffle(allItems.slice(visible));
+        realItems = [...fixedPart, ...shuffledPart];
 
         track.innerHTML = '';
-        [...fixedPart, ...shuffledPart].forEach(item => track.appendChild(item));
-    }
 
-    function getMaxIndex() {
-        const items = track.children;
-        return Math.max(0, items.length - getVisibleCount());
+        const clonesBefore = realItems.slice(-visible).map(el => el.cloneNode(true));
+        const clonesAfter  = realItems.slice(0, visible).map(el => el.cloneNode(true));
+
+        clonesBefore.forEach(el => track.appendChild(el));
+        realItems.forEach(el => track.appendChild(el));
+        clonesAfter.forEach(el => track.appendChild(el));
+
+        index = visible;
+        applyTransform(false);
     }
 
     function getStep() {
@@ -51,25 +59,45 @@ export function initCarousel() {
         return secondRect.left - firstRect.left;
     }
 
-    function update() {
-        const maxIndex = getMaxIndex();
-        index = Math.min(Math.max(index, 0), maxIndex);
-
+    function applyTransform(animate = true) {
+        if (animate) {
+            track.style.transition = 'transform 0.4s ease';
+        } else {
+            track.style.transition = 'none';
+        }
         track.style.transform = `translateX(${-index * getStep()}px)`;
-
-        btnPrev.disabled = index === 0;
-        btnNext.disabled = index === maxIndex;
     }
 
-    btnPrev.addEventListener('click', () => {
-        index -= getVisibleCount();
-        update();
-    });
+    function update(direction) {
+        if (isAnimating) return;
+        isAnimating = true;
 
-    btnNext.addEventListener('click', () => {
-        index += getVisibleCount();
-        update();
-    });
+        const visible = getVisibleCount();
+        const realCount = realItems.length;
+
+        index += direction * visible;
+        applyTransform(true);
+
+        const onTransitionEnd = () => {
+            track.removeEventListener('transitionend', onTransitionEnd);
+
+            if (index >= realCount + visible) {
+                index -= realCount;
+                applyTransform(false);
+            }
+            else if (index < visible) {
+                index += realCount;
+                applyTransform(false);
+            }
+
+            isAnimating = false;
+        };
+
+        track.addEventListener('transitionend', onTransitionEnd);
+    }
+
+    btnPrev.addEventListener('click', () => update(-1));
+    btnNext.addEventListener('click', () => update(1));
 
     function getBreakpoint() {
         const width = window.innerWidth;
@@ -98,5 +126,4 @@ export function initCarousel() {
     });
 
     renderItems();
-    update();
 }
