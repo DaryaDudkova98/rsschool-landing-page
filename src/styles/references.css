@@ -8,6 +8,8 @@
 }
 
 .references-slider {
+    --visible: 4;
+    --gap: clamp(12px, 2vw, 24px);
     position: relative;
     overflow: hidden;
     padding-top: clamp(20px, 4vw, 50px);
@@ -15,12 +17,14 @@
 
 .references-track {
     display: flex;
-    gap: clamp(12px, 2vw, 24px);
+    flex-wrap: nowrap;
+    gap: var(--gap);
     transition: transform .5s ease;
+    will-change: transform;
 }
 
 .references-item {
-    flex: 0 0 calc((100% - 3 * clamp(12px, 2vw, 24px)) / 4);
+    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
     height: clamp(320px, 32vw, 450px);
     overflow: hidden;
     border-radius: 8px;
@@ -94,15 +98,19 @@
 /* ============ MEDIA-WIDTH ============ */
 
 @media (max-width: 1024px) {
+    .references-slider {
+        --visible: 3;
+    }
     .references-item {
-        flex: 0 0 calc((100% - 2 * clamp(12px, 2vw, 24px)) / 3);
         height: clamp(320px, 36vw, 420px);
     }
 }
 
 @media (max-width: 768px) {
+    .references-slider {
+        --visible: 2;
+    }
     .references-item {
-        flex: 0 0 calc((100% - 1 * clamp(12px, 2vw, 24px)) / 2);
         height: clamp(360px, 50vw, 460px);
     }
 
@@ -122,11 +130,11 @@
 
 @media (max-width: 480px) {
     .references-item {
-        flex: 0 0 100%;
         height: clamp(420px, 100vw, 520px);
     }
 
     .references-slider {
+        --visible: 1;
         padding-top: 16px;
     }
 
