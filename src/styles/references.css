@@ -10,6 +10,7 @@
 .references-slider {
     --visible: 4;
     --gap: clamp(12px, 2vw, 24px);
+    container-type: inline-size;
     position: relative;
     overflow: hidden;
     padding-top: clamp(20px, 4vw, 50px);
@@ -24,7 +25,7 @@
 }
 
 .references-item {
-    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+
     height: clamp(320px, 32vw, 450px);
     overflow: hidden;
     border-radius: 8px;
@@ -154,7 +155,6 @@
     }
 
     .references-item {
-        flex: 0 0 100%;
         height: 440px;
     }
 

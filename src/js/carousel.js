@@ -9,6 +9,7 @@ export function initCarousel() {
 
     let index = 0;
     let isAnimating = false;
+    let realItems = [];
 
     function getVisibleCount() {
         const width = window.innerWidth;
@@ -27,7 +28,23 @@ export function initCarousel() {
         return copy;
     }
 
-    let realItems = [];
+    function clearTrack() {
+        while (track.firstChild) track.removeChild(track.firstChild);
+    }
+
+    function updateItemWidths() {
+        const slider = track.parentElement;
+        const visible = getVisibleCount();
+        const styles = getComputedStyle(track);
+        const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+        const sliderWidth = slider.clientWidth;
+        const itemWidth = (sliderWidth - (visible - 1) * gap) / visible;
+
+        Array.from(track.children).forEach(el => {
+            el.style.flex = `0 0 ${itemWidth}px`;
+            el.style.maxWidth = `${itemWidth}px`;
+        });
+    }
 
     function renderItems() {
         const visible = getVisibleCount();
@@ -36,7 +53,7 @@ export function initCarousel() {
         const shuffledPart = shuffle(allItems.slice(visible));
         realItems = [...fixedPart, ...shuffledPart];
 
-        track.innerHTML = '';
+        clearTrack();
 
         const clonesBefore = realItems.slice(-visible).map(el => el.cloneNode(true));
         const clonesAfter  = realItems.slice(0, visible).map(el => el.cloneNode(true));
@@ -46,6 +63,7 @@ export function initCarousel() {
         clonesAfter.forEach(el => track.appendChild(el));
 
         index = visible;
+        updateItemWidths();
         applyTransform(false);
     }
 
@@ -60,11 +78,7 @@ export function initCarousel() {
     }
 
     function applyTransform(animate = true) {
-        if (animate) {
-            track.style.transition = 'transform 0.4s ease';
-        } else {
-            track.style.transition = 'none';
-        }
+        track.style.transition = animate ? 'transform 0.4s ease' : 'none';
         track.style.transform = `translateX(${-index * getStep()}px)`;
     }
 
@@ -78,14 +92,19 @@ export function initCarousel() {
         index += direction * visible;
         applyTransform(true);
 
-        const onTransitionEnd = () => {
-            track.removeEventListener('transitionend', onTransitionEnd);
+        let finished = false;
+
+        const finish = () => {
+            if (finished) return;
+            finished = true;
+
+            track.removeEventListener('transitionend', onFinish);
+            clearTimeout(fallbackTimer);
 
             if (index >= realCount + visible) {
                 index -= realCount;
                 applyTransform(false);
-            }
-            else if (index < visible) {
+            } else if (index < visible) {
                 index += realCount;
                 applyTransform(false);
             }
@@ -93,7 +112,13 @@ export function initCarousel() {
             isAnimating = false;
         };
 
-        track.addEventListener('transitionend', onTransitionEnd);
+        const onFinish = (e) => {
+            if (e.target !== track || e.propertyName !== 'transform') return;
+            finish();
+        };
+
+        track.addEventListener('transitionend', onFinish);
+        const fallbackTimer = setTimeout(finish, 500);
     }
 
     btnPrev.addEventListener('click', () => update(-1));
@@ -108,8 +133,8 @@ export function initCarousel() {
     }
 
     let lastBreakpoint = getBreakpoint();
-
     let resizeTimer;
+
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
@@ -117,11 +142,11 @@ export function initCarousel() {
 
             if (currentBreakpoint !== lastBreakpoint) {
                 lastBreakpoint = currentBreakpoint;
-                index = 0;
                 renderItems();
+            } else {
+                updateItemWidths();
+                applyTransform(false);
             }
-
-            update();
         }, 150);
     });
 
